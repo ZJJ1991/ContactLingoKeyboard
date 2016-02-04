@@ -1,32 +1,55 @@
 package com.example.jzhou.contactlingokeyboard;
 
-import android.app.Service;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.media.AudioManager;
-import android.os.IBinder;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-import android.view.inputmethod.InputMethod;
 
 public class MyKeyboard extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 
 
     private  KeyboardView kv;
     private Keyboard keyboard;
+    private SharedPreferences keyboardtypePreference;
 
     private boolean caps = false;
 
     @Override
     public View onCreateInputView() {
         kv = (KeyboardView)  getLayoutInflater().inflate(R.layout.keyboard, null);
-        keyboard = new Keyboard(this, R.xml.qwery);
-        kv.setKeyboard(keyboard);
+
         kv.setOnKeyboardActionListener(this);
         return kv;
+    }
+
+    @Override
+    public void onStartInputView(EditorInfo info, boolean restarting) {
+        super.onStartInputView(info, restarting);
+        keyboardtypePreference = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String keyboardPreference = keyboardtypePreference.getString("keyboardType", "2");
+        switch (keyboardPreference) {
+            case "1":
+                keyboard = new Keyboard(this, R.xml.classic);
+                break;
+            case "2":
+                keyboard = new Keyboard(this, R.xml.crazy);
+                Log.d("keyboardtype", "crazy keyboard");
+                break;
+            case "3":
+                keyboard = new Keyboard(this, R.xml.crazy);
+                break;
+        }
+        kv.setKeyboard(keyboard);
+        kv.invalidateAllKeys();
+        kv.setPreviewEnabled(false);
+        kv.closing();
     }
 
     private  void playClick(int keyCode){
