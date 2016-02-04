@@ -22,7 +22,7 @@
 
         <service
             android:name=".MyKeyboard"
-            android:label="my_Keyboard"
+            android:label="@string/ContactLingoKeyboard"
             android:permission="android.permission.BIND_INPUT_METHOD">
             <meta-data android:name="android.view.im"
             android:resource="@xml/method"/>

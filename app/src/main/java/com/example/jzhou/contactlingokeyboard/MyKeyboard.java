@@ -24,7 +24,6 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     @Override
     public View onCreateInputView() {
         kv = (KeyboardView)  getLayoutInflater().inflate(R.layout.keyboard, null);
-
         kv.setOnKeyboardActionListener(this);
         return kv;
     }
@@ -47,7 +46,6 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                 break;
         }
         kv.setKeyboard(keyboard);
-        kv.invalidateAllKeys();
         kv.setPreviewEnabled(false);
         kv.closing();
     }
@@ -101,6 +99,7 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                     code = Character.toUpperCase(code);
                     ic.commitText(String.valueOf(code), 1);
                 }
+                ic.commitText(String.valueOf(code), 1);
         }
     }
 
