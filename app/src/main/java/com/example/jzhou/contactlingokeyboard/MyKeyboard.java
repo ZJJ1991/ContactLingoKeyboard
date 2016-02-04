@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.InputMethodSubtype;
 
 public class MyKeyboard extends InputMethodService implements KeyboardView.OnKeyboardActionListener {
 
@@ -42,12 +43,18 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                 Log.d("keyboardtype", "crazy keyboard");
                 break;
             case "3":
-                keyboard = new Keyboard(this, R.xml.crazy);
+                keyboard = new Keyboard(this, R.xml.converse);
                 break;
         }
         kv.setKeyboard(keyboard);
         kv.setPreviewEnabled(false);
         kv.closing();
+    }
+
+    @Override
+    protected void onCurrentInputMethodSubtypeChanged(InputMethodSubtype newSubtype) {
+        super.onCurrentInputMethodSubtypeChanged(newSubtype);
+
     }
 
     private  void playClick(int keyCode){
@@ -99,8 +106,23 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                     code = Character.toUpperCase(code);
                     ic.commitText(String.valueOf(code), 1);
                 }
-                ic.commitText(String.valueOf(code), 1);
+                else
+                    ic.commitText(String.valueOf(code), 1);
         }
+    }
+
+
+    @Override
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+        Log.d("Long Press", "on key long press");
+        InputConnection ic = getCurrentInputConnection();
+        if (keyCode == 32){
+            Log.d("Long Press", "start");
+            ic.deleteSurroundingText(2, 0);
+            Log.d("Long Press", "success");
+        }
+
+        return super.onKeyLongPress(keyCode, event);
     }
 
     @Override
