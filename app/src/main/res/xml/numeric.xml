@@ -1,0 +1,31 @@
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="15%p"
+    android:horizontalGap="0px"
+    android:verticalGap="0px"
+    android:keyHeight="11%p">
+
+    <Row>
+        <Key android:codes="49" android:keyLabel="1" android:horizontalGap="27.5%p" android:isRepeatable="true"/>
+        <Key android:codes="50" android:keyLabel="2" android:isRepeatable="true"/>
+        <Key android:codes="51" android:keyLabel="3" android:isRepeatable="true"/>
+    </Row>
+
+    <Row>
+        <Key android:codes="52" android:keyLabel="4" android:horizontalGap="27.5%p" android:isRepeatable="true"/>
+        <Key android:codes="53" android:keyLabel="5" android:isRepeatable="true"/>
+        <Key android:codes="54" android:keyLabel="6" android:isRepeatable="true"/>
+    </Row>
+
+    <Row>
+        <Key android:codes="55" android:keyLabel="7" android:horizontalGap="27.5%p" android:isRepeatable="true"/>
+        <Key android:codes="56" android:keyLabel="8" android:isRepeatable="true"/>
+        <Key android:codes="57" android:keyLabel="9" android:isRepeatable="true"/>
+    </Row>
+
+    <Row>
+        <Key android:codes="47" android:keyLabel="/" android:horizontalGap="27.5%p" android:isRepeatable="true"/>
+        <Key android:codes="48" android:keyLabel="0" android:isRepeatable="true"/>
+        <Key android:codes="-5" android:keyLabel="←" android:isRepeatable="true"/>
+    </Row>
+
+</Keyboard>

@@ -13,6 +13,15 @@
             android:entries="@array/KeyboardTypeArray"
             android:entryValues="@array/KeyboardTypeAlias"/>
     </PreferenceCategory>
+    <PreferenceCategory>
+        <ListPreference
+            android:title="Manually Set or Predict Language"
+            android:summary="Select Contact Lingo Feature"
+            android:key="choose_feature"
+            android:defaultValue="1"
+            android:entries="@array/KeyboardFeature"
+            android:entryValues="@array/keyboardFeatureAlias"/>
+    </PreferenceCategory>
 
 
 

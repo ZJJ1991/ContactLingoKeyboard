@@ -19,11 +19,13 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     private  KeyboardView kv;
     private Keyboard keyboard;
     private SharedPreferences keyboardtypePreference;
-
     private boolean caps = false;
+    public Contacts contacts;
+    public  double packagename;
 
     @Override
     public View onCreateInputView() {
+        contacts = new Contacts();
         kv = (KeyboardView)  getLayoutInflater().inflate(R.layout.keyboard, null);
         kv.setOnKeyboardActionListener(this);
         return kv;
@@ -45,10 +47,19 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
             case "3":
                 keyboard = new Keyboard(this, R.xml.converse);
                 break;
+            case "4":
+                keyboard = new Keyboard(this, R.xml.numeric);
+                break;
+            case "5":
+                keyboard = new Keyboard(this, R.xml.finnish);
+                break;
         }
         kv.setKeyboard(keyboard);
         kv.setPreviewEnabled(false);
         kv.closing();
+        packagename = contacts.getpackageName();
+        Log.d("111", packagename + "packagename");
+
     }
 
     @Override
@@ -58,6 +69,7 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     }
 
     private  void playClick(int keyCode){
+
         AudioManager am = (AudioManager) getSystemService(AUDIO_SERVICE);
         switch (keyCode){
             case 32:
@@ -112,18 +124,6 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     }
 
 
-    @Override
-    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
-        Log.d("Long Press", "on key long press");
-        InputConnection ic = getCurrentInputConnection();
-        if (keyCode == 32){
-            Log.d("Long Press", "start");
-            ic.deleteSurroundingText(2, 0);
-            Log.d("Long Press", "success");
-        }
-
-        return super.onKeyLongPress(keyCode, event);
-    }
 
     @Override
     public void onText(CharSequence text) {

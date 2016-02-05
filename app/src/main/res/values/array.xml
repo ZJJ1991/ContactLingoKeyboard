@@ -4,9 +4,24 @@
         <item>Classic</item>
         <item>Crazy</item>
         <item>Contact</item>
+        <item>Numeric</item>
+        <item>Finnish</item>
     </string-array>
 
     <string-array name="KeyboardTypeAlias">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="KeyboardFeature">
+        <item>Manually Set Language</item>
+        <item>Predict Language</item>
+    </string-array>
+
+    <string-array name="keyboardFeatureAlias">
         <item>1</item>
         <item>2</item>
         <item>3</item>
