@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:keyWidth="9%p"
-    android:horizontalGap="0px"
-    android:verticalGap="0px"
-    android:keyHeight="60dp">
-    <Row android:horizontalGap="10px" android:verticalGap="20px" android:keyWidth="8.33%p" android:keyHeight="50dp">
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Row android:horizontalGap="10px" android:verticalGap="20px" android:keyWidth="9.09%p" android:keyHeight="50dp">
         <Key android:codes="113"  android:keyLabel="q" android:keyEdgeFlags="left" android:isRepeatable="true"/>
         <Key android:codes="119"  android:keyLabel="w" android:isRepeatable="true"/>
         <Key android:codes="101"  android:keyLabel="e" android:isRepeatable="true"/>
@@ -14,11 +11,10 @@
         <Key android:codes="117"  android:keyLabel="u" android:isRepeatable="true"/>
         <Key android:codes="105"  android:keyLabel="i" android:isRepeatable="true"/>
         <Key android:codes="111"  android:keyLabel="o" android:isRepeatable="true"/>
-        <Key android:codes="112"  android:keyLabel="p" android:isRepeatable="true" />
-        <Key android:codes="134"  android:keyLabel="å" android:isRepeatable="true" android:keyEdgeFlags="right"/>
+        <Key android:codes="112"  android:keyLabel="p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
     </Row>
-    <Row android:horizontalGap="10px" android:verticalGap="20px" android:keyWidth="8.33%p" android:keyHeight="50dp">
-        <Key android:codes="97"  android:keyLabel="a"  android:keyEdgeFlags="left" android:isRepeatable="true"/>
+    <Row android:horizontalGap="15px" android:verticalGap="20px" android:keyWidth="9.09%p" android:keyHeight="50dp">
+        <Key android:horizontalGap="80px" android:codes="97"  android:keyLabel="a"  android:keyEdgeFlags="left" android:isRepeatable="true"/>
         <Key android:codes="115" android:keyLabel="s" android:isRepeatable="true"/>
         <Key android:codes="100" android:keyLabel="d" android:isRepeatable="true"/>
         <Key android:codes="102" android:keyLabel="f" android:isRepeatable="true"/>
@@ -26,9 +22,7 @@
         <Key android:codes="104" android:keyLabel="h" android:isRepeatable="true"/>
         <Key android:codes="106" android:keyLabel="j" android:isRepeatable="true"/>
         <Key android:codes="107" android:keyLabel="k" android:isRepeatable="true"/>
-        <Key android:codes="108" android:keyLabel="l" android:isRepeatable="true" />
-        <Key android:codes="1104" android:keyLabel="ö" android:isRepeatable="true"/>
-        <Key android:codes="1105" android:keyLabel="ä" android:isRepeatable="true" android:keyEdgeFlags="right"/>
+        <Key android:codes="108" android:keyLabel="l" android:isRepeatable="true" android:keyEdgeFlags="right"/>
     </Row>
 
     <Row android:horizontalGap="10px" android:verticalGap="20px" android:keyWidth="9.09%p" android:keyHeight="50dp">
@@ -44,11 +38,11 @@
     </Row>
 
     <Row android:rowEdgeFlags="bottom" android:horizontalGap="10px" android:keyHeight="50dp">
-        <Key android:codes="900" android:keyLabel="Sym" android:keyWidth="15%p" android:keyEdgeFlags="right" android:isRepeatable="true"/>
+        <Key android:codes="900" android:keyLabel="Sym" android:keyWidth="15%p" android:keyEdgeFlags="left" android:isRepeatable="true"/>
         <Key android:codes="47" android:keyLabel="SET" android:keyWidth="10%p" android:isRepeatable="true"/>
         <Key android:codes="32" android:keyIcon="@drawable/sym_keyboard_space" android:keyWidth="45%p" android:isRepeatable="true"/>
         <Key android:codes="46" android:keyLabel="." android:keyWidth="10%p" android:isRepeatable="true"/>
-        <Key android:codes="-4" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="16%p" android:isRepeatable="true"/>
+        <Key android:codes="-4" android:keyIcon="@drawable/sym_keyboard_return" android:keyWidth="16%p" android:isRepeatable="true" android:keyEdgeFlags="right"/>
     </Row>
 
 

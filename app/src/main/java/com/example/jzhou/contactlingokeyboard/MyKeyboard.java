@@ -52,6 +52,19 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                 break;
             case "5":
                 keyboard = new Keyboard(this, R.xml.finnish);
+                symbolsKeyboard = new Keyboard(this, R.xml.symbols);
+                break;
+            case "6":
+                keyboard = new Keyboard(this, R.xml.english_divide);
+                symbolsKeyboard = new Keyboard(this, R.xml.symbol_divide);
+                break;
+            case "7":
+                keyboard = new Keyboard(this, R.xml.multi);
+                symbolsKeyboard = new Keyboard(this, R.xml.symbol_multi);
+                break;
+            case "8":
+                keyboard = new Keyboard(this, R.xml.english);
+                symbolsKeyboard = new Keyboard(this, R.xml.symbols);
                 break;
         }
         kv.setKeyboard(keyboard);
@@ -111,6 +124,42 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                 break;
             case Keyboard.KEYCODE_DONE:
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
+                break;
+ 	    case 900:
+                if(kv.getKeyboard()== keyboard) {
+                    kv.setKeyboard(symbolsKeyboard);
+                    kv.setPreviewEnabled(false);
+                    kv.closing();
+                }
+                else{
+                    kv.setKeyboard(keyboard);
+                    kv.setPreviewEnabled(false);
+                    kv.closing();
+                }
+                break;
+            case 901:
+                if(kv.getKeyboard()== keyboard) {
+                    kv.setKeyboard(symbolsKeyboard);
+                    kv.setPreviewEnabled(false);
+                    kv.closing();
+                }
+                else{
+                    kv.setKeyboard(keyboard);
+                    kv.setPreviewEnabled(false);
+                    kv.closing();
+                }
+                break;
+            case 902:
+                if(kv.getKeyboard()== keyboard) {
+                    kv.setKeyboard(symbolsKeyboard);
+                    kv.setPreviewEnabled(false);
+                    kv.closing();
+                }
+                else{
+                    kv.setKeyboard(keyboard);
+                    kv.setPreviewEnabled(false);
+                    kv.closing();
+                }
                 break;
             default:
                 char code = (char) primaryCode;

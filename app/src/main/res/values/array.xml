@@ -5,7 +5,10 @@
         <item>Crazy</item>
         <item>Contact</item>
         <item>Numeric</item>
-        <item>Finnish</item>
+	<item>Finnish</item>
+        <item>ENGLISH DIVIDE</item>
+        <item>Multi</item>
+        <item>English(US)</item>
     </string-array>
 
     <string-array name="KeyboardTypeAlias">
@@ -14,6 +17,9 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
+	<item>6</item>
+        <item>7</item>
+        <item>8</item>
     </string-array>
 
     <string-array name="KeyboardFeature">
