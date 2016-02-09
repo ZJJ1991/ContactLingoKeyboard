@@ -18,6 +18,7 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
 
     private  KeyboardView kv;
     private Keyboard keyboard;
+    private Keyboard symbolsKeyboard;
     private SharedPreferences keyboardtypePreference;
     private boolean caps = false;
     public Contacts contacts;
