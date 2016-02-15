@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.jzhou.contactlingokeyboard">
 
+    <uses-permission android:name="com.example.jzhou.contactlingokeyboard.READ_CONTEXT_DATA" />
+    <uses-permission android:name="com.example.jzhou.contactlingokeyboard.WRITE_CONTEXT_DATA" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +24,18 @@
             </intent-filter>
         </activity>
 
+
+        <service
+            android:name=".ContactAccess"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+                <category android:name="android.accessibilityservice.category.FEEDBACK_GENERIC" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/contact_access" />
+        </service>
+
         <service
             android:name=".MyKeyboard"
             android:label="@string/ContactLingoKeyboard"
@@ -36,6 +52,15 @@
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="com.example.jzhou.contactlingokeyboard.Provider"
+            android:authorities="${applicationId}.provider.message"
+            android:exported="false"
+            android:readPermission="com.example.jzhou.contactlingokeyboard.READ_CONTEXT_DATA"
+            android:writePermission="com.example.jzhou.contactlingokeyboard.WRITE_CONTEXT_DATA"
+            >
+        </provider>
 
         <provider
             android:name="com.aware.providers.Scheduler_Provider"

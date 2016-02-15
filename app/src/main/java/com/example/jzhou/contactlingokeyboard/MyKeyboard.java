@@ -1,6 +1,7 @@
 package com.example.jzhou.contactlingokeyboard;
 
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -23,6 +24,7 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     private boolean caps = false;
     public Contacts contacts;
     public  double packagename;
+    public  static String NUMBER;
 
     @Override
     public View onCreateInputView() {
@@ -34,9 +36,22 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
 
     @Override
     public void onStartInputView(EditorInfo info, boolean restarting) {
+
         super.onStartInputView(info, restarting);
         keyboardtypePreference = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String keyboardPreference = keyboardtypePreference.getString("keyboardType", "2");
+        String language = this.getLanguage();
+        switch (language){
+            case "ENGLISH":
+                System.out.println("MY KEYBOARD : " + language);
+                keyboardPreference = "8";
+                break;
+            case "FINNISH":
+                System.out.println("MY KEYBOARD : " + language);
+                keyboardPreference = "5";
+                break;
+        }
+
         switch (keyboardPreference) {
             case "1":
                 keyboard = new Keyboard(this, R.xml.classic);
@@ -71,9 +86,29 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
         kv.setKeyboard(keyboard);
         kv.setPreviewEnabled(false);
         kv.closing();
+        NUMBER =null;
         packagename = contacts.getpackageName();
         Log.d("111", packagename + "packagename");
 
+    }
+
+    public String getLanguage (){
+        if ( NUMBER != null)
+        {
+        System.out.println("CONTACT LINGO 3 " + NUMBER);
+        String[] projection = new String[]{ Provider.BasicData.CONTACT, Provider.BasicData.FIRST_LANG};
+        Cursor cursor = getContentResolver().query(Provider.BasicData.CONTENT_URI, projection, null, null, null);
+        if (cursor.moveToFirst()) {
+            do {
+                String contact = cursor.getString(0);
+                if (NUMBER.equals(contact))
+                {
+                    return cursor.getString(1);
+                }
+            } while (cursor.moveToNext());
+        }
+        }
+        return "DEFAULT";
     }
 
     @Override

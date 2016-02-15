@@ -22,6 +22,16 @@
             android:entries="@array/KeyboardFeature"
             android:entryValues="@array/keyboardFeatureAlias"/>
     </PreferenceCategory>
+    <PreferenceCategory>
+        <ListPreference
+            android:title="Select Language"
+            android:summary="TEST"
+            android:key="choose_language"
+            android:defaultValue="1"
+            android:entries="@array/Language"
+            android:entryValues="@array/languageAlias"/>
+    </PreferenceCategory>
+
 
 
 
