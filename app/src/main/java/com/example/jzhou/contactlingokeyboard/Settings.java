@@ -2,6 +2,7 @@ package com.example.jzhou.contactlingokeyboard;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -26,6 +27,7 @@ public class Settings extends PreferenceActivity implements SharedPreferences.On
         addPreferencesFromResource(R.xml.preferences);
 
         mDefaultKeyboard = findPreference("choose_keyboard");
+        myPrefs = findPreference("choose_feature");
         mDefaultKeyboard.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
@@ -34,7 +36,21 @@ public class Settings extends PreferenceActivity implements SharedPreferences.On
                 return false;
             }
         });
-        getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
+        myPrefs.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                switch (newValue.toString()){
+                    case "1":
+                        Intent intent = new Intent(getBaseContext(), ManualActivity.class);
+                        startActivity(intent);
+                        break;
+                    case "2":
+                        break;
+                }
+                return false;
+            }
+        });
+                getPreferenceManager().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
 
     }
 
