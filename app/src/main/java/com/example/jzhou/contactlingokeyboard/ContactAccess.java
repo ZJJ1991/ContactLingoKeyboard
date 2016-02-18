@@ -60,6 +60,10 @@ public class ContactAccess extends AccessibilityService {
                     if (ifSaved(NUMBER)) {
                         //Log.d("CONTACT_LINGO 1", NUMBER);
                         MyKeyboard.NUMBER = NUMBER;
+<<<<<<< HEAD
+=======
+                        updateData(NUMBER);
+>>>>>>> origin/master
                         System.out.println("ALREADY EXIST");
                     } else {
                         addData(NUMBER);
@@ -94,7 +98,11 @@ public class ContactAccess extends AccessibilityService {
         return value;
     }
 
+<<<<<<< HEAD
     public void addData(String NUMBER) {
+=======
+    public  void addData(String NUMBER) {
+>>>>>>> origin/master
         ContentValues new_data = new ContentValues();
         new_data.put(Provider.BasicData.CONTACT, NUMBER);
         new_data.put(Provider.BasicData.FIRST_LANG, "ENGLISH");
@@ -102,6 +110,27 @@ public class ContactAccess extends AccessibilityService {
         getContentResolver().insert(Provider.BasicData.CONTENT_URI, new_data);
     }
 
+<<<<<<< HEAD
+=======
+    public void updateData(String NUMBER){
+        ContentValues new_data = new ContentValues();
+        languagePreference = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String lP = languagePreference.getString("choose_language", "1");
+        System.out.println(lP);
+        switch (lP) {
+            case "1":
+                new_data.put(Provider.BasicData.FIRST_LANG, "ENGLISH");
+                new_data.put(Provider.BasicData.SECOND_LANG, "FINNISH");
+                break;
+            case "2":
+                new_data.put(Provider.BasicData.FIRST_LANG, "FINNISH");
+                new_data.put(Provider.BasicData.SECOND_LANG, "ENGLISH");
+                break;
+        }
+        getContentResolver().update(Provider.BasicData.CONTENT_URI, new_data, Provider.BasicData.CONTACT + "=?", new String[]{NUMBER});
+    }
+
+>>>>>>> origin/master
     public boolean ifSaved(String NUMBER){
         String[] projection = new String[]{ Provider.BasicData.CONTACT};
         Cursor cursor = getContentResolver().query(Provider.BasicData.CONTENT_URI, projection, null, null, null);

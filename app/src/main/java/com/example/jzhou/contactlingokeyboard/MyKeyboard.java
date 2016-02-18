@@ -50,9 +50,12 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                 System.out.println("MY KEYBOARD : " + language);
                 keyboardPreference = "5";
                 break;
+<<<<<<< HEAD
             case "SWEDISH":
                 keyboardPreference = "7";
                 break;
+=======
+>>>>>>> origin/master
         }
 
         switch (keyboardPreference) {
