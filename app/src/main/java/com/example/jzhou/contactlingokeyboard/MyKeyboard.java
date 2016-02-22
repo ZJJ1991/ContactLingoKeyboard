@@ -20,6 +20,7 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     private  KeyboardView kv;
     private Keyboard keyboard;
     private Keyboard symbolsKeyboard;
+    private Keyboard symbolsShift;
     private SharedPreferences keyboardtypePreference;
     private boolean caps = false;
     public Contacts contacts;
@@ -53,7 +54,9 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
             case "SWEDISH":
                 keyboardPreference = "7";
                 break;
-
+            case "ARABIC":
+                keyboardPreference = "6";
+                break;
         }
 
         switch (keyboardPreference) {
@@ -67,9 +70,11 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
             case "3":
                 keyboard = new Keyboard(this, R.xml.converse);
                 break;
-            case "4":
-                keyboard = new Keyboard(this, R.xml.numeric);
-                break;
+//            case "4":
+//                keyboard = new Keyboard(this, R.xml.danish);
+//                symbolsKeyboard = new Keyboard(this, R.xml.symbols);
+//                symbolsShift = new Keyboard(this, R.xml.symbols_shift);
+//                break;
             case "5":
                 keyboard = new Keyboard(this, R.xml.finnish);
                 symbolsKeyboard = new Keyboard(this, R.xml.symbols);
@@ -86,6 +91,14 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                 keyboard = new Keyboard(this, R.xml.english);
                 symbolsKeyboard = new Keyboard(this, R.xml.symbols);
                 break;
+            case "9":
+                keyboard = new Keyboard(this, R.xml.swedish);
+                symbolsKeyboard = new Keyboard(this, R.xml.symbols);
+                break;
+            case "10":
+                keyboard = new Keyboard(this, R.xml.norwegian);
+                symbolsKeyboard = new Keyboard(this, R.xml.symbols);
+                break;
         }
         kv.setKeyboard(keyboard);
         kv.setPreviewEnabled(false);
@@ -99,18 +112,18 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     public String getLanguage (){
         if ( NUMBER != null)
         {
-        System.out.println("CONTACT LINGO 3 " + NUMBER);
-        String[] projection = new String[]{ Provider.BasicData.CONTACT, Provider.BasicData.FIRST_LANG};
-        Cursor cursor = getContentResolver().query(Provider.BasicData.CONTENT_URI, projection, null, null, null);
-        if (cursor.moveToFirst()) {
-            do {
-                String contact = cursor.getString(0);
-                if (NUMBER.equals(contact))
-                {
-                    return cursor.getString(1);
-                }
-            } while (cursor.moveToNext());
-        }
+            System.out.println("CONTACT LINGO 3 " + NUMBER);
+            String[] projection = new String[]{ Provider.BasicData.CONTACT, Provider.BasicData.FIRST_LANG};
+            Cursor cursor = getContentResolver().query(Provider.BasicData.CONTENT_URI, projection, null, null, null);
+            if (cursor.moveToFirst()) {
+                do {
+                    String contact = cursor.getString(0);
+                    if (NUMBER.equals(contact))
+                    {
+                        return cursor.getString(1);
+                    }
+                } while (cursor.moveToNext());
+            }
         }
         return "DEFAULT";
     }
@@ -165,7 +178,7 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
             case Keyboard.KEYCODE_DONE:
                 ic.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_ENTER));
                 break;
- 	    case 900:
+            case 900:
                 if(kv.getKeyboard()== keyboard) {
                     kv.setKeyboard(symbolsKeyboard);
                     kv.setPreviewEnabled(false);
@@ -201,6 +214,20 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
                     kv.closing();
                 }
                 break;
+            case 905:
+                if(kv.getKeyboard()== symbolsKeyboard) {
+                    kv.setKeyboard(symbolsShift);
+                    kv.setPreviewEnabled(false);
+                    kv.closing();
+                }
+                else{
+                    kv.setKeyboard(symbolsKeyboard);
+                    kv.setPreviewEnabled(false);
+                    kv.closing();
+                }
+            case 800:
+                changeview();
+                break;
             default:
                 char code = (char) primaryCode;
                 if (Character.isLetter(code) && caps){
@@ -213,6 +240,9 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     }
 
 
+    public void changeview(){
+
+    }
 
     @Override
     public void onText(CharSequence text) {

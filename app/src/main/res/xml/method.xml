@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <input-method xmlns:android="http://schemas.android.com/apk/res/android"
     android:settingsActivity="com.example.softkeyboard.Settings"
+    android:icon="@drawable/imeicon"
     android:supportsSwitchingToNextInputMethod="true">
 
     <subtype
-        android:label="中文 (简体)"
-        android:imeSubtypeLocale="zh_CN"
+        android:label="@string/subtype_zh_CN"
+        android:imeSubtypeLanguage="zh_CN"
         android:imeSubtypeMode="keyboard"/>
     <subtype
         android:label="@string/subtype_en_US"
+        android:imeSubtypeLanguage="en_US"
+        android:imeSubtypeMode="keyboard"/>
+    <subtype
+        android:label="@string/subtype_de_DE"
+        android:imeSubtypeLanguage="de_DE"
+        android:imeSubtypeMode="keyboard"/>
+    <subtype
+        android:label="@string/subtype_fi_FI"
+        android:imeSubtypeLanguage="fi_FI"
+        android:imeSubtypeMode="keyboard"/>
+
+
+    <subtype
+        android:label="@string/label_subtype_generic"
+        android:imeSubtypeLocale="zh_CN"
+        android:imeSubtypeMode="keyboard"/>
+    <subtype
+        android:label="@string/label_subtype_generic"
         android:imeSubtypeLocale="en_US"
         android:imeSubtypeMode="keyboard"/>
     <subtype
-        android:label="Deutsche"
+        android:label="@string/label_subtype_generic"
         android:imeSubtypeLocale="de_DE"
         android:imeSubtypeMode="keyboard"/>
     <subtype
-        android:label="Suomi"
+        android:label="@string/label_subtype_generic"
         android:imeSubtypeLocale="fi_FI"
         android:imeSubtypeMode="keyboard"/>
 </input-method>

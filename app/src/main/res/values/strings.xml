@@ -4,7 +4,12 @@
     <string name="action_settings">Settings</string>
     <string name="ContactLingoKeyboard">ContactLingoKeyboard</string>
     <string name="subtype_en_US">English (US)</string>
+    <string name="subtype_zh_CN">中文 (简体)</string>
+    <string name="subtype_de_DE">Deutsche</string>
+    <string name="subtype_fi_FI">Suomi</string>
     <string name="title_activity_manual">LINGO KEYBOARD MANUAL SETTINGS</string>
     <string name="invite_phone_hint">Phone Number</string>
     <string name="pick_email_label">CLICK TO SELECT CONTACT</string>
+    <string name="fast_input_label">Contact Lingo Input</string>
+    <string name="label_subtype_generic">%s</string>
 </resources>
