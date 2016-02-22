@@ -1,5 +1,6 @@
 package com.example.jzhou.contactlingokeyboard;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.inputmethodservice.InputMethodService;
@@ -26,6 +27,8 @@ public class MyKeyboard extends InputMethodService implements KeyboardView.OnKey
     public Contacts contacts;
     public  double packagename;
     public  static String NUMBER;
+
+
 
     @Override
     public View onCreateInputView() {
