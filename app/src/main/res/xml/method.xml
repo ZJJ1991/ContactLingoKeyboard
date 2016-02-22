@@ -4,23 +4,6 @@
     android:icon="@drawable/imeicon"
     android:supportsSwitchingToNextInputMethod="true">
 
-    <subtype
-        android:label="@string/subtype_zh_CN"
-        android:imeSubtypeLanguage="zh_CN"
-        android:imeSubtypeMode="keyboard"/>
-    <subtype
-        android:label="@string/subtype_en_US"
-        android:imeSubtypeLanguage="en_US"
-        android:imeSubtypeMode="keyboard"/>
-    <subtype
-        android:label="@string/subtype_de_DE"
-        android:imeSubtypeLanguage="de_DE"
-        android:imeSubtypeMode="keyboard"/>
-    <subtype
-        android:label="@string/subtype_fi_FI"
-        android:imeSubtypeLanguage="fi_FI"
-        android:imeSubtypeMode="keyboard"/>
-
 
     <subtype
         android:label="@string/label_subtype_generic"
@@ -38,4 +21,5 @@
         android:label="@string/label_subtype_generic"
         android:imeSubtypeLocale="fi_FI"
         android:imeSubtypeMode="keyboard"/>
+
 </input-method>

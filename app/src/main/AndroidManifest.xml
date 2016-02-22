@@ -38,6 +38,8 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/contact_access" />
         </service>
+
+
         <service
             android:name=".ContactAccess"
             android:exported="true"
@@ -52,6 +54,8 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/contact_access" />
         </service>
+
+
         <service
             android:name=".MyKeyboard"
             android:enabled="true"
